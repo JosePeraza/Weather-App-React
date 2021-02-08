@@ -10,13 +10,13 @@ import axios from 'axios';
 
 const WeatherContainer = () => {
 
-  let long = "";
-  let lat = "";
+//   let long = "";
+//   let lat = "";
 
-navigator.geolocation.getCurrentPosition(function(position) {
-    long = position.coords.longitude;
-    lat = position.coords.latitude;
-});
+// navigator.geolocation.getCurrentPosition(function(position) {
+//     long = position.coords.longitude;
+//     lat = position.coords.latitude;
+// });
     
 
   const proxy = "https://cors-anywhere.herokuapp.com/";  
@@ -30,16 +30,24 @@ navigator.geolocation.getCurrentPosition(function(position) {
   const [description, setDescription] = useState("");
 
   useEffect(() => {
-    let lat2 = lat;
-    let long2 = long;
-    axios(`${proxy}api.openweathermap.org/data/2.5/weather?lat=${lat2}&lon=${long2}&appid=${API_key}`)
-    .then((res) => {
+    
+
+    navigator.geolocation.getCurrentPosition(function(position) {
+      let long = position.coords.longitude;
+      let lat = position.coords.latitude;
+
+      axios(`${proxy}api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_key}`)
+      .then((res) => {
       setCity(res.data.name);
       setCountry(res.data.sys.country);
       setIcon(res.data.weather[0].icon);
       setTemp(res.data.main.feels_like);
       setDescription(res.data.weather[0].description);
     })
+    });
+
+    
+    
   },[]);
 
   
