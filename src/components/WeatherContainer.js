@@ -9,16 +9,7 @@ import axios from 'axios';
 
 
 const WeatherContainer = () => {
-
-//   let long = "";
-//   let lat = "";
-
-// navigator.geolocation.getCurrentPosition(function(position) {
-//     long = position.coords.longitude;
-//     lat = position.coords.latitude;
-// });
     
-
   const proxy = "https://cors-anywhere.herokuapp.com/";  
   const API_key = "84fd28923a555889ecefa814ab98bb62";
   
@@ -30,7 +21,6 @@ const WeatherContainer = () => {
   const [description, setDescription] = useState("");
 
   useEffect(() => {
-    
 
     navigator.geolocation.getCurrentPosition(function(position) {
       let long = position.coords.longitude;
@@ -45,9 +35,6 @@ const WeatherContainer = () => {
       setDescription(res.data.weather[0].description);
     })
     });
-
-    
-    
   },[]);
 
   
