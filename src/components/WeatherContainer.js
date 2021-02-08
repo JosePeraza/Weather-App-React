@@ -7,43 +7,49 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 
 
+
 const WeatherContainer = () => {
 
-//     let long = "";
-//     let lat = "";    
+  let long = "";
+  let lat = "";
 
-// navigator.geolocation.getCurrentPosition(function(position) {
-//     long = position.coords.longitude;
-//     lat = position.coords.latitude;
-// });
+navigator.geolocation.getCurrentPosition(function(position) {
+    long = position.coords.longitude;
+    lat = position.coords.latitude;
+});
     
 
   const proxy = "https://cors-anywhere.herokuapp.com/";  
   const API_key = "84fd28923a555889ecefa814ab98bb62";
   
 
-  // const [city, setCity] = useState("");
-  // const [country, setCountry] = useState("");
-  // const [icon, setIcon] = useState("");
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
+  const [icon, setIcon] = useState("");
   const [temp, setTemp] = useState("");
-  // const [description, setDescription] = useState("");
+  const [description, setDescription] = useState("");
 
   useEffect(() => {
-    axios(`https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?lat=20.9498961&lon=-89.5955872&appid=84fd28923a555889ecefa814ab98bb62`)
+    let lat2 = lat;
+    let long2 = long;
+    axios(`${proxy}api.openweathermap.org/data/2.5/weather?lat=${lat2}&lon=${long2}&appid=${API_key}`)
     .then((res) => {
-    //   setValue(res.data);
+      setCity(res.data.name);
+      setCountry(res.data.sys.country);
+      setIcon(res.data.weather[0].icon);
       setTemp(res.data.main.feels_like);
+      setDescription(res.data.weather[0].description);
     })
-  })
+  },[]);
 
   
 
     return (
         <div id="app-container">
-        <Location/>
-        <Icon/>
+        <Location city={city} country={country}/>
+        <Icon icon_id={icon}/>
         <Temperature temp={Math.round(temp - 273)}/>
-        <Description/>
+        <Description description={description}/>
         <Button/>
     </div>
     );
