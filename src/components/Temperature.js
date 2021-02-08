@@ -16,8 +16,8 @@ const Temperature = ({ temp }) => {
     return (
         
         <div>
-            <div id="temp">
-                <p><span id="temp-value">{ isDegreeC ? Math.round(temp - 273)+'°C' : Math.round(((temp-273.15)*1.8)+32)+'°F' }</span></p>
+            <div className="temp">
+                <p><span className="temp-value">{ isDegreeC ? Math.round(temp - 273)+'°C' : Math.round(((temp-273.15)*1.8)+32)+'°F' }</span></p>
             </div>
             <button onClick={handleDegree} className="button">Degrees °F/°C</button>
         </div>

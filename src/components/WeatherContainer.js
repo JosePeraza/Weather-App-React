@@ -39,7 +39,7 @@ const WeatherContainer = () => {
   },[]);
 
     return (
-        <div id="app-container">
+        <div className="app-container">
         <Location city={city} country={country}/>
         <Icon icon_id={icon}/>
         <Description description={description}/>

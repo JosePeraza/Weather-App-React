@@ -38,7 +38,7 @@ body{
   background-color: #36d1dc;
   background-image: linear-gradient(#36d1dc, #5b86e5);
 }
-#app-container{
+.app-container{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,12 +46,12 @@ body{
   width: 100vw;
   height: 100vh;
 }
-#temp{
+.temp{
   color: #fff;
   font-size: 3rem;
   text-align: center;
 }
-#temp #temp-value{
+.temp .temp-value{
   color: #fff;
   font-size: 6rem;
 }
