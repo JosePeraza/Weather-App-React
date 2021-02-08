@@ -19,7 +19,8 @@ const WeatherContainer = () => {
   const [icon, setIcon] = useState("");
   const [temp, setTemp] = useState("");
   const [description, setDescription] = useState("");
-
+  
+  
   useEffect(() => {
 
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -37,15 +38,12 @@ const WeatherContainer = () => {
     });
   },[]);
 
-  
-
     return (
         <div id="app-container">
         <Location city={city} country={country}/>
         <Icon icon_id={icon}/>
-        <Temperature temp={Math.round(temp - 273)}/>
         <Description description={description}/>
-        <Button/>
+        <Temperature temp={temp}/>
     </div>
     );
 };

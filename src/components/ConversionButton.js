@@ -1,7 +1,8 @@
 
-const Button = ({  }) => {
+const Button = ({ buttonhandle }) => {
+    
     return (
-        <button className="button">Degrees °F/°C</button>
+        <button onClick={buttonhandle} className="button">Degrees °F/°C</button>
     );
 };
 
