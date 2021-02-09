@@ -26,7 +26,7 @@ const WeatherContainer = () => {
       let long = position.coords.longitude;
       let lat = position.coords.latitude;
 
-      axios(`api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_key}`)
+      axios(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_key}`)
       .then((res) => {
       setCity(res.data.name);
       setCountry(res.data.sys.country);
