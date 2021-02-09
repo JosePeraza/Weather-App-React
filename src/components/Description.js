@@ -1,7 +1,7 @@
 
 const Description = ({ description }) => {
     return (
-        <div id="climate">
+        <div className="climate">
             <p>{description}</p>
         </div>
     );

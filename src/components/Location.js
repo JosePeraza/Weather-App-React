@@ -1,7 +1,7 @@
 
 const Location = ({ city, country }) => {
     return (
-        <div id="location">
+        <div className="location">
             <p>{city} / {country}</p>
         </div>
     );
