@@ -2,7 +2,6 @@ import Temperature from "./Temperature";
 import Description from "./Description";
 import Location from "./Location";
 import Icon from "./Icon"
-import Button from "./ConversionButton.js";
 import { useState, useEffect } from "react";
 import axios from 'axios';
 
