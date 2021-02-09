@@ -10,7 +10,6 @@ import axios from 'axios';
 
 const WeatherContainer = () => {
     
-  const proxy = "https://cors-anywhere.herokuapp.com/";  
   const API_key = "84fd28923a555889ecefa814ab98bb62";
   
 
@@ -27,7 +26,7 @@ const WeatherContainer = () => {
       let long = position.coords.longitude;
       let lat = position.coords.latitude;
 
-      axios(`${proxy}api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_key}`)
+      axios(`https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_key}`)
       .then((res) => {
       setCity(res.data.name);
       setCountry(res.data.sys.country);
